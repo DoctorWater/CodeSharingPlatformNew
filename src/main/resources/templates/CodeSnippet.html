@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title>Code</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        #load_date {
+            color: darkolivegreen;
+            font-style: italic;
+        }
+
+        #code_snippet {
+            background-color: bisque;
+            font-family: "DejaVu Sans Mono", serif;
+            padding: 5px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+<th:block th:each="codePart : ${codeSnippets}">
+    <span id="load_date" th:text="${codePart.getDate()}"></span>
+    <pre id="code_snippet"><code th:text="${codePart.getCode()}"></code></pre>
+</th:block>
+</body>
+</html>
